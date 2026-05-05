@@ -91,8 +91,12 @@ public class Employee {
 
     public void punchOut(int time){
         //allows the worker to punch out with a time stamp
-        int newHoursWorked =  time - punchInTime;
-        hasPunchedIn = false;
-        hoursWorked += newHoursWorked;
+        if (hasPunchedIn) {
+            int newHoursWorked = time - punchInTime;
+            hasPunchedIn = false;
+            hoursWorked += newHoursWorked;
+        }else{
+            System.out.println("Hasn't checked in");
+        }
     }
 }
