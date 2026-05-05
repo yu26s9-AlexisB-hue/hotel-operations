@@ -1,11 +1,16 @@
 package com.pluaralsight;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Employee {
     private int employeeId;
     private String name;
     private String department;
     private double payRate;
     private double hoursWorked;
+    private int punchInTime;
+    private boolean hasPunchedIn;
 
     public Employee(int employeeId, String name, String department, double payRate, double hoursWorked) {
         this.employeeId = employeeId;
@@ -57,7 +62,7 @@ public class Employee {
 
     public double getTotalPay(){
         double withoutOT = getRegularHours() * payRate;
-        double possibleOT = getOvertimeHours() * (payRate * 1.20);
+        double possibleOT = getOvertimeHours() * (payRate * 1.5);
         return withoutOT + possibleOT;
     }
 
@@ -78,11 +83,16 @@ public class Employee {
         }
     }
 
-    public static void punchIn(){
+    public void punchIn(int time){
         //allows the work to punch in with a time stamp
+        hasPunchedIn = true;
+        punchInTime = time;
     }
 
-    public static void punchOut(){
+    public void punchOut(int time){
         //allows the worker to punch out with a time stamp
+        int newHoursWorked =  time - punchInTime;
+        hasPunchedIn = false;
+        hoursWorked += newHoursWorked;
     }
 }
