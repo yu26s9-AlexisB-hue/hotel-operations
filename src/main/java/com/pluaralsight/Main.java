@@ -95,7 +95,12 @@ public class Main {
 
         for (int i = 0; i < rooms.length; i++) {
             Room r = rooms[i];
-            System.out.println(r.isAvailable());
+
+            //System.out.printf("%d %.2f %b %b %b", r.getGetNumberOfBeds(),r.getGetPrice(),r.isOccupied(),r.isDirty());
+            //System.out.println(r.isAvailable());
+            //System.out.println(r.hasHouseKeeping());
+            //System.out.println(r.checkIn());
+            System.out.println(r.checkOut());
         }
 
     }

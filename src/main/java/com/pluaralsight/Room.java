@@ -1,5 +1,9 @@
 package com.pluaralsight;
 
+import org.w3c.dom.ls.LSOutput;
+
+import java.util.Scanner;
+
 public class Room {
     private int getNumberOfBeds;
     private double getPrice;
@@ -12,6 +16,7 @@ public class Room {
         this.isOccupied = occupied;
         this.isDirty = isDirty;
     }
+
 
     public int getGetNumberOfBeds() {
         return getNumberOfBeds;
@@ -56,15 +61,39 @@ public class Room {
         }
     }
 
-    public static void checkIn(){
+    public boolean checkIn() {
         //once checked in the room should be marked as occupied and dirty
+        if(hasHouseKeeping()){
+            setOccupied(true);
+            setDirty(true);
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
-    public static void checkOut(){
+    public boolean checkOut(){
         //once checked out room must be cleaned by housekeeping before making it available
+        if(isDirty && isOccupied){
+            setOccupied(false);
+            return true;
+        }else if (isDirty && !isOccupied){
+            return true;
+        }else{
+            return false;
+        }
     }
 
-    public static void cleanRoom(){
+    public boolean hasHouseKeeping(){
         //called when a room has been checked out
+        if (isDirty && !isOccupied) {
+            setDirty(false);
+            return true;
+        }else if(!isDirty && !isOccupied){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
