@@ -55,4 +55,16 @@ public class Room {
             return false;
         }
     }
+
+    public static void checkIn(){
+        //once checked in the room should be marked as occupied and dirty
+    }
+
+    public static void checkOut(){
+        //once checked out room must be cleaned by housekeeping before making it available
+    }
+
+    public static void cleanRoom(){
+        //called when a room has been checked out
+    }
 }

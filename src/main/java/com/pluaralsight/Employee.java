@@ -77,4 +77,12 @@ public class Employee {
             return 0;
         }
     }
+
+    public static void punchIn(){
+        //allows the work to punch in with a time stamp
+    }
+
+    public static void punchOut(){
+        //allows the worker to punch out with a time stamp
+    }
 }
