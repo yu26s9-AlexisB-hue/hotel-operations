@@ -1,13 +1,13 @@
 package com.pluaralsight;
 
 public class Employee {
-    private String employeeId;
+    private int employeeId;
     private String name;
     private String department;
     private double payRate;
     private double hoursWorked;
 
-    public Employee(String employeeId, String name, String department, double payRate, double hoursWorked) {
+    public Employee(int employeeId, String name, String department, double payRate, double hoursWorked) {
         this.employeeId = employeeId;
         this.name = name;
         this.department = department;
@@ -15,11 +15,11 @@ public class Employee {
         this.hoursWorked = hoursWorked;
     }
 
-    public String getEmployeeId() {
+    public int getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(String employeeId) {
+    public void setEmployeeId(int employeeId) {
         this.employeeId = employeeId;
     }
 
@@ -69,7 +69,7 @@ public class Employee {
     public double getOvertimeHours(double pay){
         if (this.hoursWorked > 40) {
             double OT = hoursWorked - 40;
-            return OT * pay;
+            return OT;
         }else{
             return 0;
         }
