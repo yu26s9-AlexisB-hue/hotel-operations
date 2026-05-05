@@ -1,7 +1,6 @@
 package com.pluaralsight;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalTime;
 
 public class Employee {
     private int employeeId;
@@ -9,7 +8,8 @@ public class Employee {
     private String department;
     private double payRate;
     private double hoursWorked;
-    private int punchInTime;
+    private int punchInTime1;
+    private LocalTime punchInTime2;
     private boolean hasPunchedIn;
 
     public Employee(int employeeId, String name, String department, double payRate, double hoursWorked) {
@@ -84,17 +84,39 @@ public class Employee {
     }
 
     public void punchIn(int time){
-        //allows the work to punch in with a time stamp
+        //allows the worker to punch in with a time stamp
         hasPunchedIn = true;
-        punchInTime = time;
+        punchInTime1 = time;
     }
-
+    public void punchedIn(){
+        hasPunchedIn = true;
+        punchInTime2 = LocalTime.now();
+    }
     public void punchOut(int time){
         //allows the worker to punch out with a time stamp
         if (hasPunchedIn) {
-            int newHoursWorked = time - punchInTime;
+            int newHoursWorked = time - punchInTime1;
             hasPunchedIn = false;
             hoursWorked += newHoursWorked;
+        }else{
+            System.out.println("Hasn't checked in");
+        }
+    }
+
+    public void punchedOut(int time){
+        //allows the worker to punch out with a time stamp
+        if (hasPunchedIn) {
+            LocalTime punchedOut = LocalTime.now();
+            hasPunchedIn = false;
+
+            //calculating the minutes the employee worked
+            long minutesWorked = java.time.Duration.between(punchInTime2, punchedOut).toMinutes();
+
+            //converting the minutes to hours
+            double newHoursWorked = minutesWorked / 60.0;
+
+            hoursWorked += newHoursWorked;
+
         }else{
             System.out.println("Hasn't checked in");
         }

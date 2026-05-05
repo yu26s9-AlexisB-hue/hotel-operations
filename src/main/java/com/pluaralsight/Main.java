@@ -26,11 +26,12 @@ public class Main {
 
         for(int i = 0; i < employees.length; i++){
             Employee e = employees[i];
-            e.punchIn(8);
-            e.punchOut(10);
+          e.punchIn(8);
+          e.punchOut(11);
             System.out.printf("%d %s %s %.2f %.2f\n", e.getEmployeeId(), e.getName(), e.getDepartment(), e.getPayRate(), e.getHoursWorked());
             System.out.println(e.getTotalPay());
             System.out.println(e.getOvertimeHours());
+            System.out.println();
         }
 
 
