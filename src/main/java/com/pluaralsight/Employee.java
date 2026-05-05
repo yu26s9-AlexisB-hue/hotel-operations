@@ -56,17 +56,20 @@ public class Employee {
     }
 
     public double getTotalPay(){
-        double oTRate = 1.25 * payRate;
-        double overTime = getOvertimeHours(oTRate);
-        return getRegularHours(payRate) + overTime;
+        double withoutOT = getRegularHours() * payRate;
+        double possibleOT = getOvertimeHours() * (payRate * 1.20);
+        return withoutOT + possibleOT;
     }
 
-    public double getRegularHours(double pay){
-        double regHours = 40;
-        return regHours * pay;
+    public double getRegularHours(){
+        if (this.hoursWorked > 40){
+            return 40;
+        }else{
+            return this.hoursWorked;
+        }
     }
 
-    public double getOvertimeHours(double pay){
+    public double getOvertimeHours(){
         if (this.hoursWorked > 40) {
             double OT = hoursWorked - 40;
             return OT;

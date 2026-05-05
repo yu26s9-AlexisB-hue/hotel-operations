@@ -27,7 +27,7 @@ public class Main {
 
             System.out.printf("%d %s %s %.2f %.2f\n", e.getEmployeeId(), e.getName(), e.getDepartment(), e.getPayRate(), e.getHoursWorked());
             System.out.println(e.getTotalPay());
-            System.out.println(e.getOvertimeHours(e.getPayRate()));
+            System.out.println(e.getOvertimeHours());
         }
 
 
