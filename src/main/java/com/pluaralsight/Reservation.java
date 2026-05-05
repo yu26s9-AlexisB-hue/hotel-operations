@@ -46,7 +46,21 @@ public class Reservation {
 
     }
 
-    public static void getReservationTotal(){
+    public double getReservationTotal(){
+        double pricePerNight = getPrice();
+
+        if (isWeekend){
+            double tenPercentOfPrice = pricePerNight * .10;
+            double increasedPrice = pricePerNight + tenPercentOfPrice;
+            double totalPrice = increasedPrice * numberOfNights;
+
+            return totalPrice;
+        }else if(!isWeekend){
+            double totalPrice = pricePerNight * numberOfNights;
+            return totalPrice;
+        }else{
+            return 0;
+        }
 
     }
 }
