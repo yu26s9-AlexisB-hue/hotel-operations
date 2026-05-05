@@ -35,7 +35,14 @@ public class Reservation {
         this.isWeekend = isWeekend;
     }
 
-    public static void getPrice(){
+    public int getPrice(){
+        if (roomType.equals("double")){
+            return 124;
+        }else if(roomType.equals("king")){
+            return 139;
+        }else{
+            return 0;
+        }
 
     }
 
