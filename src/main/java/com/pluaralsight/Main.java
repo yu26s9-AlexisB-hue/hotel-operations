@@ -4,7 +4,8 @@ public class Main {
     public static void main(String[] args){
 
         //gettingEmployeeRoster();
-        gettingReservationLog();
+        //gettingReservationLog();
+        roomAvailablityStatus();
 
     }
     private static void gettingEmployeeRoster() {
@@ -54,6 +55,47 @@ public class Main {
             System.out.printf("%s %d %b\n", r.getRoomType(), r.getNumberOfNights(), r.isWeekend());
             System.out.println(r.getReservationTotal());
 
+        }
+
+    }
+
+    private static void roomAvailablityStatus(){
+        Room[] rooms = new Room[30];
+
+        rooms[0] = new Room(2, 682.0, true,true);
+        rooms[1] = new Room(4, 795.50, true, true);
+        rooms[2] = new Room(3,679.89, false,false);
+        rooms[3] = new Room(2, 374.29, false, false);
+        rooms[4] = new Room(1, 215.75, false, false);
+        rooms[5] = new Room(2, 489.99, true, false);
+        rooms[6] = new Room(3, 620.50, false, true);
+        rooms[7] = new Room(4, 810.00, true, true);
+        rooms[8] = new Room(2, 355.25, false, false);
+        rooms[9] = new Room(1, 199.99, true, false);
+        rooms[10] = new Room(3, 540.80, false, false);
+        rooms[11] = new Room(4, 920.45, true, true);
+        rooms[12] = new Room(2, 410.10, false, true);
+        rooms[13] = new Room(3, 675.60, false, false);
+        rooms[14] = new Room(1, 180.00, false, false);
+        rooms[15] = new Room(4, 999.99, true, false);
+        rooms[16] = new Room(2, 305.30, false, false);
+        rooms[17] = new Room(3, 710.75, true, true);
+        rooms[18] = new Room(1, 250.50, false, true);
+        rooms[19] = new Room(4, 850.00, false, false);
+        rooms[20] = new Room(2, 399.99, true, false);
+        rooms[21] = new Room(3, 580.20, false, false);
+        rooms[22] = new Room(1, 175.45, false, false);
+        rooms[23] = new Room(4, 780.80, true, true);
+        rooms[24] = new Room(2, 460.00, false, false);
+        rooms[25] = new Room(3, 690.90, false, true);
+        rooms[26] = new Room(1, 210.10, false, false);
+        rooms[27] = new Room(4, 870.65, true, false);
+        rooms[28] = new Room(2, 330.75, false, false);
+        rooms[29] = new Room(3, 605.55, true, true);
+
+        for (int i = 0; i < rooms.length; i++) {
+            Room r = rooms[i];
+            System.out.println(r.isAvailable());
         }
 
     }
