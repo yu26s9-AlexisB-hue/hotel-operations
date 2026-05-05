@@ -3,7 +3,8 @@ package com.pluaralsight;
 public class Main {
     public static void main(String[] args){
 
-        gettingEmployeeRoster();
+        //gettingEmployeeRoster();
+        gettingReservationLog();
 
     }
     private static void gettingEmployeeRoster() {
@@ -33,9 +34,28 @@ public class Main {
 
     }
 
-    private static void gettingReservationLog(){
-        
-    }
+    private static void gettingReservationLog() {
+        Reservation[] reservations = new Reservation[10];
 
+        reservations[0] = new Reservation("double", 5, true);
+        reservations[1] = new Reservation("king", 3, false);
+        reservations[2] = new Reservation("double", 7, true);
+        reservations[3] = new Reservation("double", 2, false);
+        reservations[4] = new Reservation("king", 4, true);
+        reservations[5] = new Reservation("double", 6, false);
+        reservations[6] = new Reservation("double", 3, true);
+        reservations[7] = new Reservation("double", 5, true);
+        reservations[8] = new Reservation("king", 1, false);
+        reservations[9] = new Reservation("double", 8, true);
+
+        for (int i = 0; i < reservations.length; i++){
+            Reservation r = reservations[i];
+
+            System.out.printf("%s %d %b\n", r.getRoomType(), r.getNumberOfNights(), r.isWeekend());
+            System.out.println(r.getReservationTotal());
+
+        }
+
+    }
 }
 

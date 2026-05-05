@@ -1,5 +1,7 @@
 package com.pluaralsight;
 
+import static java.lang.Math.round;
+
 public class Reservation {
     private String roomType;
     private int numberOfNights;
@@ -53,8 +55,9 @@ public class Reservation {
             double tenPercentOfPrice = pricePerNight * .10;
             double increasedPrice = pricePerNight + tenPercentOfPrice;
             double totalPrice = increasedPrice * numberOfNights;
+            double roundedTotal = round(totalPrice);
 
-            return totalPrice;
+            return roundedTotal;
         }else if(!isWeekend){
             double totalPrice = pricePerNight * numberOfNights;
             return totalPrice;
